@@ -15,8 +15,9 @@ from langgraph_supervisor import create_supervisor
 # ================================
 load_dotenv()
 
-GROQ_API_KEY = os.getenv("GROQ_API_KEY")
-BRIGHT_DATA_API_TOKEN = os.getenv("BRIGHT_DATA_API_TOKEN")
+GROQ_API_KEY = st.secrets["GROQ_API_KEY"]
+BRIGHT_DATA_API_TOKEN = st.secrets["BRIGHT_DATA_API_TOKEN"]
+
 
 if not GROQ_API_KEY:
     raise ValueError("GROQ_API_KEY not found in .env")
@@ -203,3 +204,4 @@ if run_btn:
 
     st.subheader("📊 Analysis Result")
     st.markdown(result)
+
