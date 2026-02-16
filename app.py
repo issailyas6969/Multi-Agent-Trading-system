@@ -1,4 +1,6 @@
 import os
+port = int(os.environ.get("PORT", 8501))
+
 import asyncio
 import streamlit as st
 from dotenv import load_dotenv
@@ -205,5 +207,10 @@ if run_btn:
 
     st.subheader("📊 Analysis Result")
     st.markdown(result)
+
+if __name__ == "__main__":
+    os.system(f"streamlit run app.py --server.port {port} --server.address 0.0.0.0")
+
+
 
 
